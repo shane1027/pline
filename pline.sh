@@ -15,7 +15,7 @@ Usage: pline -f "filename.txt" -l line_num
     -r range of lines to print
     -e enumerate lines (line_number + \t)
 
-    NOTE: using '-r' ovrerides '-l'
+    NOTE: using '-r' overrides '-l'
 
 EOF
 
