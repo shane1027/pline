@@ -41,6 +41,17 @@ get_range() {
 # print out the line according to first argument
 print_line() {
 
+    # check to make sure given line # is valid
+    if [ $1 -lt 1 ]; then
+        echo "Line number must be greater than zero!"
+        exit 2
+    fi
+    if [ $1 -gt $FILE_LENGTH ]; then
+        echo "Cannot address line past the length of the file!"
+        exit 3
+    fi
+
+
     # if ENUM mode is on, prefix all lines with a number and tab
     if [ $ENUMERATE -eq 1 ]; then
         #OUTPUT=`cat "${FILE:-/dev/stdin}" | sed -n ""$1"p"`
@@ -89,6 +100,7 @@ done
 if [ -e ${FILE:-/dev/stdin} ]; then
     # create a temp file to address stdin multiple times
     cat > /tmp/pline.tmp
+    FILE_LENGTH=`wc -l /tmp/pline.tmp | awk -F " " '{print $1}'`
     FILE=pline.tmp
     # check to see if range mode is enabled
     if [ $RANGEMODE -eq 1 ]; then
