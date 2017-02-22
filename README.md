@@ -22,3 +22,9 @@ Usage: pline -f "filename.txt" -l line_num
 ```
 
 
+TODO:  
+
+- Add animated .gif of pline in action
+    - pipelines, direct calls, various params.
+- Include Makefile for installing the script in /usr/bin
+    - Rename to 'pline'
